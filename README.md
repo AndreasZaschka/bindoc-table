@@ -1,63 +1,106 @@
-# bd-base-lib
+# @bindoc/table
 
+A wrapper around `@angular/material` MatTable to generate tables with dynamic input.
 
-## Usage
-This repository should provide an easy and fast way to scaffold bindoc angular libs.
-
-### Init
-Clone the repo and rename the folder.
-Afterwards run `init.sh` with scope (e.g. bindoc, emergency, ...) and lib name as parameter.
-The script will insert the scope and lib name in all needed files.
-
-#### Example
-```sh
-# init @bindoc/user
-./init.sh bindoc users
-
-# run demo app inside
-npm start
-
-# start karma tests
-npm run test
-
-# build the lib to dist folder
-npm run build
+```bash
+npm install --save @bindoc/table 
 ```
 
-### Publish
+## BdTable
 
-> Known corrupt modules fixed by the hotfix-script: 
-> - `@angular/flex-layout`
-> - `angular-calendar`.
+The `BdTable` takes a DataSource, the columns to render and a template provider to 
+generate a table dynamically with the given cell specifications.
 
-To publish the module just run `publish.sh` inside build folder.
-- builds the lib
-- applies hotfix for wrong '/index' suffixes in imports by running replace script
-- tags current commit with version from package.json
-- push (including tags)
-- runs `npm publish` in dist
+- `dataSource: BdDataSource<any>`: Wrapped DataSource with additional `getColumns()`  
+- `displayedColumns: string[]`: names of the columns to render
+- `cellTemplateProvider?: BdTemplateProvider`: a template provider for custom cell templates
 
-## Based on Angular QuickStart Lib
+### BdDataSource 
 
-This is a simple library quickstart for Angular libraries, implementing the
-[Angular Package Format v4.0](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit#heading=h.k0mh3o8u5hx).
+Extends [@angular/material's DataSource<T>](https://material.angular.io/components/table/overview) and adds a function to retrieve the columns for the given data.
 
-Currently only unscoped, primary entry-point libraries are supported.
+```typescript
+import {BD_TABLE_DATE_CELL_TYPE, BD_TABLE_VALUE_CELL_TYPE, BdDataSource, IBdTableColumn} from "@bindoc/table";
+import {CollectionViewer} from "@angular/cdk/collections";
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/observable/of';
 
-Features:
-- a simple example library
-- unit tests for the library
-- a demo application that consumes the library in JIT mode and runs in watch mode
-- an integration app that consumes the library in JIT and AOT mode and runs e2e tests
+export class SampleDataSource extends BdDataSource<any> {
+  connect(collectionViewer: CollectionViewer): Observable<any[]> {
+    return Observable.of([
+      {
+         "startDate": {
+            date: "2017-06-17",
+            format: 'shortDate' 
+         }
+       }
+    ]);
+  }
 
-Common tasks are present as npm scripts:
+  disconnect(collectionViewer: CollectionViewer): void {}
 
-- `npm start` to run a live-reload server with the demo app
-- `npm run test` to test in watch mode, or `npm run test:once` to only run once
-- `npm run build` to build the library
-- `npm run lint` to lint 
-- `npm run clean` to clean
-- `npm run integration` to run the integration e2e tests
-- `npm install ./relative/path/to/lib` after `npm run build` to test locally in another app
+  getColumns(): IBdTableColumn[] {
+    return [
+      {
+          name: "startDate",
+          displayName: "Date",
+          type: BD_TABLE_DATE_CELL_TYPE
+       }
+    ];
+  }
+}
+```
 
-If you need to debug the integration app, please check `./integration/README.md`.
+### BdTableColumn
+
+The table is generated through columns and their specification. 
+
+- `name`: name of the corresponding field in the row object
+- `displayName`: used in header row as title for the column
+- `type`: defines the cell template to use in columns cells
+
+
+### BdTableCell
+
+The table cell can render a custom template given by the `BdTemplateProvider`
+passed to the table.
+
+Also there are several integrated templates.
+
+#### BdTableValueCell
+
+The most basic cell template just prints the given data value.
+
+```typescript
+import {BdTemplateData} from "@bindoc/templates";
+
+export const BD_TABLE_VALUE_CELL_TYPE: string = 'BdTableValueCell';
+
+export class BdTableValueCellData implements BdTemplateData {
+  public type: string = BD_TABLE_VALUE_CELL_TYPE;
+  public data: any;
+}
+```
+
+#### BdTableDateCell
+
+The cell for printing formatted date values.
+
+- `date: Date`: the date value
+- `format: string`: the format to pass to angulars [DatePipe](https://angular.io/api/common/DatePipe), default is 'short'
+```typescript
+import {BdTemplateData} from "@bindoc/templates";
+
+export const BD_TABLE_DATE_CELL_TYPE: string = 'BdTableDateCell';
+
+export class BdTableDateCellData implements BdTemplateData {
+  public type: string = BD_TABLE_DATE_CELL_TYPE;
+  public data: {
+    date: Date,
+    format: string
+  };
+}
+```
+
+
+ 

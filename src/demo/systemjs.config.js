@@ -47,21 +47,9 @@
 
       // other libraries
       'rxjs': 'npm:rxjs',
-      'mapbox-gl': 'npm:mapbox-gl/dist/mapbox-gl.js',
-      '@turf/helpers': 'npm:@turf/helpers/index.js',
-      '@covalent/core': 'npm:@covalent/core/core.umd.js',
-      'ng2-completer': 'npm:ng2-completer/ng2-completer.umd.js',
       'tslib': 'npm:tslib/tslib.js',
-      '@auth0/angular-jwt': 'npm:@auth0/angular-jwt/bundles/core.umd.js',
-      '@bindoc/config-store': 'npm:@bindoc/config-store/bundles/config-store.umd.js',
-      '@bindoc/security': 'npm:@bindoc/security/bundles/security.umd.js',
-      '@bindoc/maps': 'npm:@bindoc/maps/bundles/maps.umd.js',
-      '@bindoc/material': 'npm:@bindoc/material/bundles/material.umd.js',
-      '@bindoc/autocompletion': 'npm:@bindoc/autocompletion/bundles/autocompletion.umd.js',
-      '@emergency/patient': 'npm:@emergency/patient/bundles/patient.umd.js',
-      '@emergency/user': 'npm:@emergency/user/bundles/user.umd.js',
-      '@emergency/service': 'npm:@emergency/service/bundles/service.umd.js',
-      '@emergency/case': 'npm:@emergency/case/bundles/case.umd.js'
+
+      '@bindoc/templates': 'npm:@bindoc/templates/bundles/templates.umd.js',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {BdDataSource} from "./data-source/data-source-model";
 import {IBdTableColumn} from "./column/column.interface";
+import {BdTemplateProvider} from "@bindoc/templates";
+import {BD_TABLE_VALUE_CELL_TYPE} from "./cell/templates/value-cell.component";
 
 @Component({
   selector: 'bd-table',
@@ -14,7 +16,9 @@ import {IBdTableColumn} from "./column/column.interface";
         </mat-header-cell>
         
         <mat-cell *matCellDef="let element">
-          hue
+          <bd-table-cell  [cellTemplateProvider]="cellTemplateProvider"
+                          [cellData]="getCellValue(element, column)">
+          </bd-table-cell>
         </mat-cell>
         
       </ng-container>
@@ -29,8 +33,10 @@ import {IBdTableColumn} from "./column/column.interface";
 })
 export class BdTableComponent implements OnInit {
 
-  @Input() dataSource: BdDataSource;
+  @Input() dataSource: BdDataSource<any>;
   @Input() displayedColumns: string[] = [];
+
+  @Input() cellTemplateProvider: BdTemplateProvider;
 
   public columns: IBdTableColumn[];
 
@@ -38,5 +44,12 @@ export class BdTableComponent implements OnInit {
     if(this.dataSource) {
       this.columns = this.dataSource.getColumns();
     }
+  }
+
+  public getCellValue(rowData: any, selectedColumn: IBdTableColumn): any {
+    return {
+      data: rowData[selectedColumn.name],
+      type: selectedColumn.type || BD_TABLE_VALUE_CELL_TYPE
+    };
   }
 }
