@@ -5,6 +5,7 @@ import {BdTableCellComponent} from "./cell.component";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {BdTableDateCellComponent} from "./templates/date-cell.component";
+import {BdTableDecimalCellComponent} from "./templates/decimal-cell.component";
 
 export * from './cell-template-provider';
 
@@ -19,11 +20,13 @@ export * from './templates/index';
   declarations: [
     BdTableValueCellComponent,
     BdTableDateCellComponent,
+    BdTableDecimalCellComponent,
     BdTableCellComponent
   ],
   exports: [
     BdTableValueCellComponent,
     BdTableDateCellComponent,
+    BdTableDecimalCellComponent,
     BdTableCellComponent
   ],
   providers: [
@@ -31,6 +34,7 @@ export * from './templates/index';
   ],
   entryComponents: [
     BdTableDateCellComponent,
+    BdTableDecimalCellComponent,
     BdTableValueCellComponent
   ]
 })

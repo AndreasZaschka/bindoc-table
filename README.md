@@ -82,6 +82,26 @@ export class BdTableValueCellData implements BdTemplateData {
 }
 ```
 
+#### BdTableValueCell
+
+The cell for printing formatted decimal values.
+
+- `date: Date`: the date value
+- `format: string`: the format to pass to angulars [DatePipe](https://angular.io/api/common/DatePipe), default is 'short'
+```typescript
+import {BdTemplateData} from "@bindoc/templates";
+
+export const BD_TABLE_DATE_CELL_TYPE: string = 'BdTableDateCell';
+
+export class BdTableDateCellData implements BdTemplateData {
+  public type: string = BD_TABLE_DATE_CELL_TYPE;
+  public data: {
+    date: Date,
+    format: string
+  };
+}
+```
+
 #### BdTableDateCell
 
 The cell for printing formatted date values.

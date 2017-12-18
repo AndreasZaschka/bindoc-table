@@ -2,7 +2,7 @@ import {IBdTableColumn} from "../column/column.interface";
 import {Observable} from "rxjs/Observable";
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
 
-export abstract class BdDataSource<T> extends DataSource<T> {
+export abstract class BdDataSource<T> extends DataSource<any> {
 
   public abstract connect(collectionViewer: CollectionViewer): Observable<T[]>;
 

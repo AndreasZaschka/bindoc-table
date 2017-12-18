@@ -34,7 +34,7 @@ import {BD_TABLE_VALUE_CELL_TYPE} from "./cell/templates/value-cell.component";
 export class BdTableComponent implements OnInit {
 
   @Input() dataSource: BdDataSource<any>;
-  @Input() displayedColumns: string[] = [];
+  @Input() displayedColumns: string[];
 
   @Input() cellTemplateProvider: BdTemplateProvider;
 
@@ -43,6 +43,7 @@ export class BdTableComponent implements OnInit {
   ngOnInit(): void {
     if(this.dataSource) {
       this.columns = this.dataSource.getColumns();
+      this.displayedColumns = this.setDisplayedColumns()
     }
   }
 
@@ -51,5 +52,14 @@ export class BdTableComponent implements OnInit {
       data: rowData[selectedColumn.name],
       type: selectedColumn.type || BD_TABLE_VALUE_CELL_TYPE
     };
+  }
+
+  /**
+   * When no restrictions are passed through input just render all columns.
+   *
+   * @returns {string[]} an array with the column names to render
+   */
+  private setDisplayedColumns(): string[] {
+    return this.displayedColumns || this.dataSource.getColumns().map(column => column.name);
   }
 }
