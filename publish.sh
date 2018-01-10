@@ -23,4 +23,4 @@ set +e
 echo "Publish version:                  $NEXT_VERSION"
 git push --follow-tags
 
-npm publish dist
+npm publish dist --access public
