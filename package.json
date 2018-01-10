@@ -1,19 +1,19 @@
 {
   "name": "@bindoc/table",
   "version": "1.0.0-beta.3",
-  "description": "Library QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Provides an easy way for dynamically creating angular material tables by data and custom cell templates.",
   "main": "./table.umd.js",
   "module": "./table.es5.js",
   "es2015": "./table.js",
   "typings": "./table.d.ts",
   "author": "Sven Seemann",
   "bugs": {
-    "url": "https://bindoc.atlassian.net/projects/BDMRGNCY/issues",
+    "url": "https://github.com/BinDoc-Projects/bindoc-table/issues",
     "email": "sven.seemann@bindoc.de"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/bindoc/bindoc-table"
+    "url": "https://github.com/BinDoc-Projects/bindoc-table"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -31,17 +31,6 @@
     "serve": "lite-server -c=bs-config.json",
     "prestart": "npm run build-demo",
     "start": "concurrently \"npm run build-demo:watch\" \"npm run serve\"",
-    "build-test": "tsc -p src/lib/tsconfig.spec.json",
-    "build-test:watch": "tsc -p src/lib/tsconfig.spec.json -w",
-    "pretest": "npm run build-test",
-    "test": "concurrently \"npm run build-test:watch\" \"karma start karma.conf.js\"",
-    "pretest:once": "npm run build-test",
-    "test:once": "karma start karma.conf.js --single-run",
-    "preintegration": "npm run build && cd integration && npm run clean && npm install",
-    "integration": "npm run integration:aot && npm run integration:jit",
-    "integration:jit": "cd integration && npm run e2e",
-    "integration:aot": "cd integration && npm run e2e:aot",
-    "lint": "tslint ./src/**/*.ts -t verbose"
   },
   "peerDependencies": {
     "@angular/core": "4.4.x",
