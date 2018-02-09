@@ -55,16 +55,7 @@ const rollupBaseConfig = {
     // See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
     '@angular/core',
     '@angular/http',
-    '@bindoc/config-store',
-    'rxjs',
-    'rxjs/add/operator/map',
-    'rxjs/add/operator/toPromise',
-    '@angular/flex-layout',
-    '@angular/common',
-    '@angular/platform-browser/animations',
-    '@angular/forms',
-    '@angular/material',
-    '@angular/router'
+    '@angular/platform-browser/animations'
   ],
   plugins: [
     sourcemaps()

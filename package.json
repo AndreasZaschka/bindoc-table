@@ -67,7 +67,7 @@
     "jasmine-core": "2.5.x",
     "lite-server": "2.2.x",
     "rimraf": "2.6.x",
-    "rollup": "0.43.x",
+    "rollup": "0.55.x",
     "rollup-plugin-sourcemaps": "0.4.x",
     "rollup-plugin-uglify": "3.0.x",
     "rxjs": "5.5.x",
