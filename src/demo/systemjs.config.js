@@ -25,6 +25,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
       '@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
+      '@angular/cdk/accordion': 'npm:@angular/cdk/bundles/cdk-accordion.umd.js',
       '@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk-bidi.umd.js',
       '@angular/cdk/coercion': 'npm:@angular/cdk/bundles/cdk-coercion.umd.js',
       '@angular/cdk/collections': 'npm:@angular/cdk/bundles/cdk-collections.umd.js',
@@ -37,6 +38,7 @@
       '@angular/cdk/testing': 'npm:@angular/cdk/bundles/cdk-testing.umd.js',
       '@angular/cdk/observers': 'npm:@angular/cdk/bundles/cdk-observers.umd.js',
       '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk-overlay.umd.js',
+      '@angular/cdk/layout': 'npm:@angular/cdk/bundles/cdk-layout.umd.js',
       '@angular/cdk/scrolling': 'npm:@angular/cdk/bundles/cdk-scrolling.umd.js',
       '@angular/cdk/stepper': 'npm:@angular/cdk/bundles/cdk-stepper.umd.js',
       '@angular/cdk/keycodes': 'npm:@angular/cdk/bundles/cdk-keycodes.umd.js',
@@ -49,7 +51,7 @@
       'rxjs': 'npm:rxjs',
       'tslib': 'npm:tslib/tslib.js',
 
-      '@bindoc/templates': 'npm:@bindoc/templates/bundles/templates.umd.js',
+      '@bindoc/templates': 'npm:@bindoc/templates/bundles/templates.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
