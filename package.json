@@ -1,6 +1,6 @@
 {
   "name": "@bindoc/table",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Provides an easy way for dynamically creating angular material tables by data and custom cell templates.",
   "main": "./table.umd.js",
   "module": "./table.es5.js",
