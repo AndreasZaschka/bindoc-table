@@ -60,7 +60,7 @@ export class BdTableComponent implements OnInit {
   /**
    * When no restrictions are passed through input just render all columns.
    *
-   * @returns {string[]} an array with the column names to render
+   * @returns an array with the column names to render
    */
   private setDisplayedColumns(): string[] {
     return this.displayedColumns || this.dataSource.getColumns().map(column => column.name);
