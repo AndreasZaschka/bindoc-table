@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, TrackByFunction} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TrackByFunction} from '@angular/core';
 import {BdDataSource} from "./data-source/data-source-model";
 import {IBdTableColumn} from "./column/column.interface";
 import {BdTemplateProvider} from "@bindoc/templates";
@@ -22,7 +22,8 @@ export const BD_TABLE_DEFAULT_TRACK_BY_FNC: TrackByFunction<any> = (index: numbe
         
         <mat-cell *matCellDef="let element">
           <bd-table-cell  [cellTemplateProvider]="cellTemplateProvider"
-                          [cellData]="getCellValue(element, column)">
+                          [cellData]="element[column.name]"
+                          [cellType]="column.type || BD_TABLE_VALUE_CELL_TYPE">
           </bd-table-cell>
         </mat-cell>
         
@@ -46,18 +47,14 @@ export class BdTableComponent implements OnInit {
 
   public columns: IBdTableColumn[];
 
+  constructor() {
+  }
+
   ngOnInit(): void {
     if(this.dataSource) {
       this.columns = this.dataSource.getColumns();
-      this.displayedColumns = this.setDisplayedColumns()
+      this.displayedColumns = this.setDisplayedColumns();
     }
-  }
-
-  public getCellValue(rowData: any, selectedColumn: IBdTableColumn): any {
-    return {
-      data: rowData[selectedColumn.name],
-      type: selectedColumn.type || BD_TABLE_VALUE_CELL_TYPE
-    };
   }
 
   /**

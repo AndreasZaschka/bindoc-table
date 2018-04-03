@@ -1,10 +1,9 @@
 import {
   BD_TABLE_DATE_CELL_TYPE,
-  BD_TABLE_DECIMAL_CELL_TYPE,
   BD_TABLE_VALUE_CELL_TYPE,
   BdDataSource,
   IBdTableColumn
-} from "table";
+} from 'table';
 import {CollectionViewer} from "@angular/cdk/collections";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/of';
