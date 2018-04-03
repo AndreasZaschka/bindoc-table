@@ -23,6 +23,5 @@ export class BdTableCellComponent implements OnInit {
 
   ngOnInit(): void {
     this.templateProvider = this.templateProvider || new BdTableCellTemplateProvider();
-    console.log(this.templateProvider)
   }
 }
