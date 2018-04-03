@@ -1,23 +1,31 @@
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from "@angular/core";
+import {SampleCellComponent} from './sampel-cell-template.component';
 import {BdTableTestComponent} from "./table.component";
 import {RouterModule} from "@angular/router";
-import {BdTableModule} from "table";
+import {BdTableCellModule, BdTableModule} from 'table';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     RouterModule.forChild([
       { path: 'table', component: BdTableTestComponent }
     ]),
+    BdTableCellModule,
     BdTableModule
   ],
   declarations: [
-    BdTableTestComponent
+    BdTableTestComponent,
+    SampleCellComponent
   ],
   exports: [
     RouterModule,
     BdTableTestComponent
   ],
-  providers: []
+  providers: [],
+  entryComponents: [
+    SampleCellComponent
+  ]
 })
 export class BdTableTestModule {
 
