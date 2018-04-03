@@ -53,7 +53,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e04fa",
     "displayName": "2017-029102",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 1,
     },
     "startDate": {
       date: "2017-06-17",
@@ -64,7 +64,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e04fb",
     "displayName": "2017-029103",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 2,
     },
     "startDate": {
       date: "2017-06-17"
@@ -74,7 +74,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e04fc",
     "displayName": "2017-029104",
     "randomFact": {
-      factNumber: 1000
+      factNumber: 3
     },
     "startDate": {
       date: "2017-06-17"
@@ -84,7 +84,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e04fd",
     "displayName": "2017-029105",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 4,
     },
     "startDate": {
       date: "2017-06-17"
@@ -94,7 +94,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e04fe",
     "displayName": "2017-029106",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 5,
     },
     "startDate": {
       date: "2017-06-17"
@@ -104,7 +104,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e04ff",
     "displayName": "2017-029107",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 6,
     },
     "startDate": {
       date: "2017-06-17"
@@ -114,7 +114,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e0500",
     "displayName": "2017-029108",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 7,
     },
     "startDate": {
       date: "2017-06-17"
@@ -124,7 +124,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e0501",
     "displayName": "2017-029109",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 8,
     },
     "startDate": {
       date: "2017-06-17"
@@ -134,7 +134,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e0502",
     "displayName": "2017-029110",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 9,
     },
     "startDate": {
       date: "2017-06-17"
@@ -144,7 +144,7 @@ export const TEST_DATA: any[] = [
     "id": "59919d67719c2e00012e0503",
     "displayName": "2017-029111",
     "randomFact": {
-      factNumber: 1000,
+      factNumber: 10,
     },
     "startDate": {
       date: "2017-06-17"

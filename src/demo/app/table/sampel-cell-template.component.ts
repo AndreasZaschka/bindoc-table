@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Component} from "@angular/core";
 import {BdTemplateData} from "@bindoc/templates";
-import {map} from 'rxjs/operators';
 
 export const SAMPLE_CELL_TYPE: string = 'SampleCell';
 
@@ -25,7 +24,7 @@ export class SampleCellComponent {
     this._getRandomFact();
   }
 
-  public init(config: BdTableDecimalCellData) {
+  public init(config: SampleCellData) {
     if(config.data.factNumber) {
 
     }
@@ -34,14 +33,12 @@ export class SampleCellComponent {
   private _getRandomFact() {
     const url: string = 'http://numbersapi.com/random/year';
 
-    this._httpClient.get(url, {responseType: 'text'}).subscribe((fact: string) => {
-      console.log(fact)
-      this.fact = fact
-    });
+    this._httpClient.get(url, {responseType: 'text'})
+      .subscribe((fact: string) => this.fact = fact);
   }
 }
 
-export class BdTableDecimalCellData implements BdTemplateData {
+export class SampleCellData implements BdTemplateData {
   public type: string = SAMPLE_CELL_TYPE;
   public data: {
     factNumber: number

@@ -1,13 +1,18 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnInit, TrackByFunction} from '@angular/core';
 import {BdDataSource} from "./data-source/data-source-model";
 import {IBdTableColumn} from "./column/column.interface";
 import {BdTemplateProvider} from "@bindoc/templates";
 import {BD_TABLE_VALUE_CELL_TYPE} from "./cell/templates/value-cell.component";
 
+export const BD_TABLE_DEFAULT_TRACK_BY_FNC: TrackByFunction<any> = (index: number, item: any) => {
+  return item;
+};
+
 @Component({
   selector: 'bd-table',
   template: `
     <mat-table #table
+               [trackBy]="trackByFnc"
                [dataSource]="dataSource">
       <ng-container   *ngFor="let column of columns"
                       [matColumnDef]="column.name">
@@ -35,6 +40,7 @@ export class BdTableComponent implements OnInit {
 
   @Input() dataSource: BdDataSource<any>;
   @Input() displayedColumns: string[];
+  @Input() trackByFnc: TrackByFunction<any> = BD_TABLE_DEFAULT_TRACK_BY_FNC;
 
   @Input() cellTemplateProvider: BdTemplateProvider;
 
